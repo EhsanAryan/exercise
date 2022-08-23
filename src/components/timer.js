@@ -14,13 +14,6 @@ export default class Timer extends React.Component {
         }
     }
 
-    componentDidMount(){
-        interval = setInterval(() => {
-            this.setState({
-                time : this.state.time -1
-            });
-        } , 1000);
-    }
 
     componentDidUpdate(){
         if(this.state.time===0){
@@ -28,11 +21,35 @@ export default class Timer extends React.Component {
         }
     }
 
+
+    startTimer = () => {
+        if(!interval){
+            interval = setInterval(()=>{
+                this.setState({
+                    time : this.state.time - 1
+                });
+            } , 1000);
+        }
+    }
+
+
+    stopTimer = () =>{
+        if(interval){
+            clearInterval(interval);
+            interval=undefined;
+        }
+    }
+
+
     render(){
 
         return (
             <div className="timer-div">
                 Time: {this.state.time}
+                <span>
+                    <button onClick={this.startTimer}>Start</button>
+                    <button onClick={this.stopTimer}>Stop</button>
+                </span>
             </div>
         );
     }
