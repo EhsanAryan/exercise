@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./timer.css";
-
+import List from './list';
 
 
 let interval;
@@ -13,7 +13,8 @@ export default class Timer extends React.Component {
             hour: 0 ,
             minute: 0 ,
             second: 0 ,
-            isStart: false
+            isStart: false , 
+            timeArray : []
         }
     }
 
@@ -70,8 +71,20 @@ export default class Timer extends React.Component {
             minute : 0 ,
             second : 0
         });
-        console.log(this.state.hour , this.state.minute , this.state.isStart);
     }
+
+
+    addTime = () => {
+        let h = this.state.hour;
+        let m = this.state.minute;
+        let s = this.state.second;
+        let newTime = `${h>9 ? h : "0"+h} : ${m>9 ? m : "0"+m} : ${s>9 ? s : "0"+s}`;
+
+        this.setState({
+            timeArray : [...this.state.timeArray , newTime]
+        });
+    }
+    
 
 
     render(){
@@ -80,14 +93,26 @@ export default class Timer extends React.Component {
         let s = this.state.second;
 
         return (
+            <>
+            <button onClick={this.props.changeThemeColor} className="timer-btn change-btn"
+            style={{
+                backgroundColor: this.props.isDark ? "white" : "black" ,
+                color: this.props.isDark ? "black" : "white"
+                }}>
+                {this.props.isDark ? "Light" : "Dark"}
+            </button>
             <div className="timer-div">
-                {`${h>9 ? h : "0"+h} : ${m>9 ? m : "0"+m} : ${s>9 ? s : "0"+s}`}
+                <span onClick={this.addTime}>
+                    {`${h>9 ? h : "0"+h} : ${m>9 ? m : "0"+m} : ${s>9 ? s : "0"+s}`}
+                </span>
                 <span>
-                    <button onClick={this.startTimer} className="timer-btn">Start</button>
-                    <button onClick={this.stopTimer} className="timer-btn">Stop</button>
-                    <button onClick={this.resetTimer} className="timer-btn">Reset</button>
+                    <button onClick={this.startTimer} className="timer-btn start-btn">Start</button>
+                    <button onClick={this.stopTimer} className="timer-btn stop-btn">Stop</button>
+                    <button onClick={this.resetTimer} className="timer-btn reset-btn">Reset</button>
                 </span>
             </div>
+            <List timeArray={this.state.timeArray} />
+            </>
         );
     }
 }

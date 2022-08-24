@@ -1,0 +1,17 @@
+
+.time-list {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    min-width: 200px;
+    background-color: #3a3e59;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+
+.time-list:not(:empty) {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+}

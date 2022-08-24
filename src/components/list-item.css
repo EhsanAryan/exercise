@@ -1,0 +1,8 @@
+
+.time-item {
+    margin-bottom: 15px;
+}
+
+.time-item:last-child {
+    margin-bottom: 0;
+}
