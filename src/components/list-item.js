@@ -5,6 +5,9 @@ import "./list-item.css";
 const ListItem = (props) => {
 
     const removeItem = (event) => {
+        // in ravesh baes mishavad ke tamame time hayi ke dar yek lahze sabt kardim hazf shavand.
+        // props.setTimeArray(props.timeArray.filter(time => time !== event.target.innerHTML));
+
         let currItem = event.target;
         currItem.remove();
     }

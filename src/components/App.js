@@ -1,38 +1,42 @@
-import React from 'react';
+import React , { useState } from 'react';
 import ReactDOM from "react-dom";
 import Hello from "./hello";
 import Timer from "./timer";
+import List from './list';
 import "./App.css";
+import { AppContext } from "../contexts/AppContext";
 
+const App = () => {
 
+    let [isDark , setIsDark] = useState(false);
+    let [timeArray , setTimeArray] = useState([]);
 
-export default class App extends React.Component {
-
-    constructor(){
-        super();
-        this.state = {
-            isDark : false
-        }
-    }
-
-    changeThemeColor = () => {
-        this.setState({
-            isDark : !this.state.isDark
-        })
+    const changeThemeColor = () => {
+        setIsDark(!isDark);
     }
 
 
-
-    render(){
-        return (
-                <div className='parent-div'
-                style={{
-                    backgroundColor: this.state.isDark ? "black" : "#26abad" ,
-                    color : this.state.isDark ? "white" : "black"
+    return (
+        
+            <div className='parent-div'
+            style={{
+                backgroundColor: isDark ? "black" : "#26abad" ,
+                color : isDark ? "white" : "black"
+            }}>
+                <AppContext.Provider value={{
+                    isDark : isDark,
+                    changeThemeColor : changeThemeColor ,
+                    timeArray : timeArray ,
+                    setTimeArray : setTimeArray
                 }}>
                     <Hello />
-                    <Timer isDark={this.state.isDark} changeThemeColor={this.changeThemeColor} />
-                </div>
-        );
-    }
+                    <Timer />
+                    <List/>
+                </AppContext.Provider>
+            </div>
+        
+    );
+
 }
+
+export default App;
