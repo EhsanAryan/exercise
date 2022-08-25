@@ -5,14 +5,15 @@ import { AppContext } from "../contexts/AppContext";
 
 
 const List = () => {
-    const appContext = useContext(AppContext);
+    const context = useContext(AppContext);
+
     return (
         <div className="time-list" 
         style={{
-            backgroundColor : appContext.isDark ? "#0cf" : "#3a3e59" ,
-            color: appContext.isDark ? "black" : "white"
+            backgroundColor : context.isDark ? "#0cf" : "#3a3e59" ,
+            color: context.isDark ? "black" : "white"
         }}>
-            <ListItem timeArray={appContext.timeArray} setTimeArray={appContext.setTimeArray}/>
+            <ListItem />
         </div>
     );
 }

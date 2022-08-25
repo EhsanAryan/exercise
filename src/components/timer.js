@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import "./timer.css";
 import List from './list';
 import { AppContext } from "../contexts/AppContext";
+import Buttons from "./timer-buttons";
+import ChangeButton from "./change-button";
 
 
 let interval;
@@ -91,26 +93,16 @@ class Timer extends React.Component {
 
         return (
             <>
-                <button onClick={this.context.changeThemeColor} className="timer-btn change-btn" 
-                style={{
-                    backgroundColor: this.context.isDark ? "white" : "black" ,
-                    color: this.context.isDark ? "black" : "white"
-                    }}>
-                    {this.context.isDark ? "Light" : "Dark"}
-                </button>
+                <ChangeButton />
                 <div className="timer-div"
                 style={{
                     backgroundColor : this.context.isDark ? "#0cf" : "#3a3e59" , 
                     color : this.context.isDark ? "black" : "white"
                 }}>
-                    <span onClick={this.addTime}>
+                        <span onClick={this.addTime}>
                         {`${h>9 ? h : "0"+h} : ${m>9 ? m : "0"+m} : ${s>9 ? s : "0"+s}`}
                     </span>
-                    <span>
-                        <button onClick={this.startTimer} className="timer-btn start-btn">Start</button>
-                        <button onClick={this.stopTimer} className="timer-btn stop-btn">Stop</button>
-                        <button onClick={this.resetTimer} className="timer-btn reset-btn">Reset</button>
-                    </span>
+                    <Buttons startTimer={this.startTimer} stopTimer={this.stopTimer} resetTimer={this.resetTimer} />
                 </div>
             </>
         );
