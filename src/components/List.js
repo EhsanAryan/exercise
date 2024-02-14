@@ -1,6 +1,6 @@
 import React , { useContext } from "react";
 import "./list.css";
-import ListItem from "./list-item";
+import ListItem from "./ListItem";
 import { AppContext } from "../contexts/AppContext";
 
 

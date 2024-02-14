@@ -1,6 +1,6 @@
 import React , { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
-import "./list-item.css";
+import "./ListItem.css";
 
 
 const ListItem = (props) => {

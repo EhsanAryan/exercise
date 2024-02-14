@@ -1,6 +1,6 @@
 import React , { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
-import "./timer-buttons.css";
+import "./TimerButtons.css";
 
 
 const ChangeButton = () => {

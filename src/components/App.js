@@ -1,8 +1,8 @@
 import React , { useState } from 'react';
 import ReactDOM from "react-dom";
-import Hello from "./hello";
-import Timer from "./timer";
-import List from './list';
+import Hello from "./Hello";
+import Timer from "./Timer";
+import List from './List';
 import "./App.css";
 import { AppContext } from "../contexts/AppContext";
 

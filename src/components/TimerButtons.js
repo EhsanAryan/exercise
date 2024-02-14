@@ -1,7 +1,7 @@
 import React from "react";
-import "./timer-buttons.css";
+import "./TimerButtons.css";
 
-const Buttons = (props) => {
+const TimerButtons = (props) => {
 
     return (
         <span>
@@ -12,4 +12,4 @@ const Buttons = (props) => {
     );
 }
 
-export default Buttons;
+export default TimerButtons;
