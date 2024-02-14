@@ -20,8 +20,8 @@ const App = () => {
         
             <div className='parent-div'
             style={{
-                backgroundColor: isDark ? "black" : "#26abad" ,
-                color : isDark ? "white" : "black"
+                backgroundColor: isDark ? "#222" : "#26AFCF" ,
+                color : isDark ? "white" : "#222"
             }}>
                 <AppContext.Provider value={{
                     isDark : isDark,

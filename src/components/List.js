@@ -1,5 +1,5 @@
 import React , { useContext } from "react";
-import "./list.css";
+import "./List.css";
 import ListItem from "./ListItem";
 import { AppContext } from "../contexts/AppContext";
 
@@ -10,8 +10,8 @@ const List = () => {
     return (
         <div className="time-list" 
         style={{
-            backgroundColor : context.isDark ? "#0cf" : "#3a3e59" ,
-            color: context.isDark ? "black" : "white"
+            backgroundColor : context.isDark ? "#26AFCF" : "#3a3e59" ,
+            color: context.isDark ? "#222" : "white"
         }}>
             <ListItem />
         </div>

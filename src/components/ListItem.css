@@ -1,8 +1,18 @@
 
 .time-item {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    cursor: pointer;
 }
 
 .time-item:last-child {
     margin-bottom: 0;
+}
+
+.pointer-events-none {
+    pointer-events: none;
 }

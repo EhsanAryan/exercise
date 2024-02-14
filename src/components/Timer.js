@@ -88,10 +88,10 @@ class Timer extends React.Component {
                 <ChangeButton />
                 <div className="timer-div"
                     style={{
-                        backgroundColor: this.context.isDark ? "#0cf" : "#3a3e59",
-                        color: this.context.isDark ? "black" : "white"
+                        backgroundColor: this.context.isDark ? "#26AFCF" : "#3a3e59",
+                        color: this.context.isDark ? "#222" : "white"
                     }}>
-                    <span onClick={this.addTime}>
+                    <span onClick={this.addTime} className="pointer">
                         {`${addZeroToNumber(h)} : ${addZeroToNumber(m)} : ${addZeroToNumber(s)}`}
                     </span>
                     <TimerButtons startTimer={this.startTimer} stopTimer={this.stopTimer} resetTimer={this.resetTimer} />

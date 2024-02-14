@@ -1,4 +1,4 @@
-import React , { useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
 import "./ListItem.css";
 
@@ -9,7 +9,7 @@ const ListItem = (props) => {
 
     const removeItem = (event) => {
         // in ravesh baes mishavad ke tamame time hayi ke dar yek lahze sabt kardim hazf shavand.
-        // context.setTimeArray(context.timeArray.filter(time => time !== event.target.innerHTML));
+        // context.setTimeArray(prevValue => prevValue.filter(time => time !== event.target.innerHTML));
 
         let currItem = event.target;
         currItem.remove();
@@ -18,13 +18,17 @@ const ListItem = (props) => {
 
     return (
         <>
-            {context.timeArray.map((time , index) => {
-                return (
-                    <div key={index} className="time-item" onClick={removeItem}>
+            {context.timeArray.map((time, index) => (
+                <div key={index} className="time-item" onClick={removeItem}>
+                    <span className="pointer-events-none">
+                        {index}:
+                    </span>
+                    <span className="pointer-events-none">
                         {time}
-                    </div>
-                );
-            })}
+                    </span>
+                </div>
+
+            ))}
         </>
     );
 }

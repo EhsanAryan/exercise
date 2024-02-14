@@ -9,8 +9,8 @@ const ChangeButton = () => {
     return(
         <button onClick={context.changeThemeColor} className="timer-btn" 
         style={{
-            backgroundColor: context.isDark ? "white" : "black" ,
-            color: context.isDark ? "black" : "white"
+            backgroundColor: context.isDark ? "white" : "#222" ,
+            color: context.isDark ? "#222" : "white"
             }}>
             {context.isDark ? "Light" : "Dark"}
         </button>
